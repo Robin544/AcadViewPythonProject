@@ -35,27 +35,29 @@ class AddNewNote:
         self.dash.root.attributes('-disabled', True)
         self.db = db
         self.root = Tk()
-        self.root.geometry("500x430")
+        self.root.geometry("600x500")
         self.root.resizable(0, 0)
         self.root.protocol("WM_DELETE_WINDOW", self.cancel_callback)
         self.root.title("Create New Note")
+
         self.Font = font.Font(family='Helvetica', size=15, weight='bold')
         self.Font_search_text = font.Font(family='Helvetica', size=15)
         self.Font_search_btn = font.Font(family='Helvetica', size=10, weight='bold')
         self.Font_note = font.Font(family='Helvetica', size=12)
-        self.add_label = Label(self.root, text="Add New Note Below", font=self.Font)
-        self.add_label.place(x=170, y=15)
-        self.text = Text(self.root, font=self.Font_note, width=54, height=18)
+        self.Font_add_label = font.Font(family='Helvetica', size=25, weight='bold')
+        self.add_label = Label(self.root, text="Add New Note Below", font=self.Font_add_label)
+        self.add_label.place(x=200, y=15)
+        self.text = Text(self.root, font=self.Font_note, width=64, height=22)
         self.text.place(x=1, y=40)
         self.scroll = Scrollbar(self.root, orient=VERTICAL, command=self.text.yview)
         self.text['yscroll'] = self.scroll.set
 
         # self.scroll.pack(side="right", fill="y")
-        self.scroll.place(x=485, y=40, height=330)
+        self.scroll.place(x=582, y=40, height=401)
         self.save_button = Button(self.root, bg="red", fg="white", text="Save",
                                   command=lambda: self.add_new_callback(), font=self.Font_search_btn, width=13)
-        self.save_button.place(x=290, y=380)
+        self.save_button.place(x=320, y=452)
         self.cancel_button = Button(self.root, bg="red", fg="white", text="Cancel",
                                     command=lambda: self.cancel_callback(), font=self.Font_search_btn, width=13)
-        self.cancel_button.place(x=90, y=380)
+        self.cancel_button.place(x=120, y=452)
         self.root.mainloop()
