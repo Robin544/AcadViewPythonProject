@@ -1,11 +1,6 @@
 # Note-Taking-App-in-Python-Tkinter-and-Mysql
 Handy Note Taking GUI Application in Python
 
->Screenshot of the application is
-
-![alt text](https://github.com/kaustubhdevkar/Note-Taking-App-in-Python-Tkinter-and-Mysql/blob/master/Screenshot.PNG)
-
-
 >This Application  takes your notes and stores it in database..
 
 >You can add,view and delete notes at any time..
