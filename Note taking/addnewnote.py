@@ -54,10 +54,10 @@ class AddNewNote:
 
         # self.scroll.pack(side="right", fill="y")
         self.scroll.place(x=582, y=40, height=401)
-        self.save_button = Button(self.root, bg="red", fg="white", text="Save",
+        self.save_button = Button(self.root, bg="#900C3F", fg="white", text="Save",
                                   command=lambda: self.add_new_callback(), font=self.Font_search_btn, width=13)
         self.save_button.place(x=320, y=452)
-        self.cancel_button = Button(self.root, bg="red", fg="white", text="Cancel",
+        self.cancel_button = Button(self.root, bg="#900C3F", fg="white", text="Cancel",
                                     command=lambda: self.cancel_callback(), font=self.Font_search_btn, width=13)
         self.cancel_button.place(x=120, y=452)
         self.root.mainloop()

@@ -27,10 +27,10 @@ class Dashboard:
         for note in notes:
             x = str(note.get_msg())
             y = int(note.get_idt())
-            if x <= x[:20]:
+            if x <= x[:50]:
                 self.listbox.insert(i, x)
             else:
-                self.listbox.insert(i, x[:20] + "...")
+                self.listbox.insert(i, x[:50] + "...")
             if i % 2 == 0:
                 self.listbox.itemconfig(i, bg="#d3d3d3")
             i += 1
@@ -80,7 +80,7 @@ class Dashboard:
         #----------------------------------CLOCK-----------------------------------------------
         def clock_time():
             time = datetime.datetime.now()
-            time = (time.strftime("%H:%M:%S %p"))
+            time = (time.strftime("%I:%M:%S %p"))
             txt.set(time)
             self.root.after(1000, clock_time)
 
@@ -89,37 +89,38 @@ class Dashboard:
         self.root.after(1000, clock_time())
 
         dt = datetime.date.today().strftime('%d/%m/%Y')
-        self.label_date = Label(self.root, font=('ariel', 18, 'bold'), text="Date: " + dt, fg="#900C3F", anchor=W)
+        self.label_date = Label(self.root, font=('ariel', 18, 'bold'), text="Date: " + dt, fg="#173873", anchor=W)
         self.label_date.place(x=750, y=10)
-        self.label_time = Label(self.root, font=('ariel', 18, 'bold'), text="Time: ", textvariable=txt, fg="#900C3F", anchor=W)
+        self.label_time = Label(self.root, font=('ariel', 18, 'bold'), text="Time: ", textvariable=txt, fg="#173873", anchor=W)
         self.label_time.place(x=770, y=45)
 
         # -----------------------------------Clock Designed---------------------------------
 
-        self.add_button = Button(self.root, width=18, bg="red", fg="white", text="Add New Note>>",
+        self.Font_for_label = font.Font(family='Helvetica', size=35, weight='bold')
+        self.label = Label(self.root, text="<< Save Your Notes Here >>", fg="#173873", font=self.Font_for_label)
+        self.label.place(x=80, y=6)
+
+        self.add_button = Button(self.root, width=18, bg="#900C3F", fg="white", text="Add New Note>>",
                                font=self.Font, command=lambda: self.add_callback())
         self.add_button.place(x=105, y=90)
-        self.list_all_btn = Button(self.root, width=18, bg="red", fg="white", text="List All Notes",
+        self.list_all_btn = Button(self.root, width=18, bg="#900C3F", fg="white", text="List All Notes",
                                  font=self.Font, command=lambda: self.list_all_callback())
         self.list_all_btn.place(x=440, y=90)
-        self.search_label = Label(self.root, text="Search Notes", font=self.Font)
+        self.search_label = Label(self.root, text="Search Notes", font=self.Font,fg="#173873")
         self.search_label.place(x=15, y=160)
         self.var = StringVar()
         self.search_box = Entry(self.root, width=56, textvariable=self.var, font=self.Font_search_text)
         self.search_box.place(x=15, y=195)
-        self.search_button = Button(self.root, bg="red", fg="white", text="Search",
+        self.search_button = Button(self.root, bg="#900C3F", fg="white", text="Search",
                                     font=self.Font_search_btn, width=13, command=lambda: self.search_callback())
         self.search_button.place(x=790, y=192)
-        self.note_label = Label(self.root, text="-- Notes --", font=self.Font_note_label)
+        self.note_label = Label(self.root, text="-- Notes --", font=self.Font_note_label, fg="#173873")
         self.note_label.place(x=330, y=235)
 
         self.listbox = Listbox(self.root, selectmode=SINGLE, width=78, font=self.Font_note, height=13)
         self.scroll = Scrollbar(self.root, orient=VERTICAL, command=self.listbox.yview)
         self.listbox['yscroll'] = self.scroll.set
 
-        self.Font_for_label = font.Font(family='Helvetica', size=35, weight='bold')
-        self.label = Label(self.root, text="<< Save Your Notes Here >>", fg="#900C3F", font=self.Font_for_label)
-        self.label.place(x=80, y=6)
 
         # self.scroll.pack(side="right", fill="y")
         self.scroll.place(x=932, y=275, height=330)
@@ -128,7 +129,7 @@ class Dashboard:
         self.listbox.bind('<<ListboxSelect>>', lambda l: self.edit_callback())
         self.listbox.place(x=5, y=275)
 
-        self.name_label = Label(self.root, text="--By Robin Singh",  fg="#900C3F", font=self.Font_name_label)
+        self.name_label = Label(self.root, text="--By Robin Singh",  fg="#173873", font=self.Font_name_label)
         self.name_label.place(x=795, y=604)
 
         def mainconfirm():

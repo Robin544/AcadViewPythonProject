@@ -72,13 +72,13 @@ class EditNote:
         time = "Created At : "+str(note.get_time())
         self.time_label = Label(self.root, text=time, font=self.Font_note)
         self.time_label.place(x=190, y=448)
-        self.save_button = Button(self.root, bg="red", fg="white", text="Update",
+        self.save_button = Button(self.root, bg="#900C3F", fg="white", text="Update",
                                   command=lambda: self.update_callback(note), font=self.Font_search_btn, width=13)
         self.save_button.place(x=420, y=480)
-        self.delete_button = Button(self.root, bg="red", fg="white", text="Delete",
+        self.delete_button = Button(self.root, bg="#900C3F", fg="white", text="Delete",
                                     command=lambda: self.delete_callback(note), font=self.Font_search_btn, width=13)
         self.delete_button.place(x=250, y=480)
-        self.cancel_button = Button(self.root, bg="red", fg="white", text="Cancel",
+        self.cancel_button = Button(self.root, bg="#900C3Fs", fg="white", text="Cancel",
                                     command=lambda: self.cancel_callback(), font=self.Font_search_btn, width=13)
         self.cancel_button.place(x=80, y=480)
         self.root.mainloop()
